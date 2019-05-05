@@ -1,4 +1,5 @@
 import requests, string, random, sys, time
+from tempmail import tempmail
 
 class creator:
     def __init__(self):
@@ -18,6 +19,8 @@ class creator:
         self.s.headers.update({'Referer': path})
 
     def autocreate(self):
+        email = tempmail()
+        self.getemail = email.GenMail()
         passwords = self.Password(15)
         url = self.base + 'index.phtml'
         self.s.get(url)
@@ -61,10 +64,9 @@ class creator:
             print('something fucked up, quitting in 5 seconds.')
             time.sleep(5)
             sys.exit()
-        email = self.Username(10)
         url = self.base + 'signup/ajax.phtml'
         self.referer(self.base + 'signup/index.phtml?cookieCheck=1')
-        data = {'method': 'step3', 'email1': email + '@gmail.com', 'email2': email + '@gmail.com', 'optinNeopets': 'false', 'optinEmail': ''}
+        data = {'method': 'step3', 'email1': self.getemail, 'email2': self.getemail, 'optinNeopets': 'false', 'optinEmail': ''}
         self.s.post(url, data=data)
         url = self.base + 'reg/page4.phtml'
         self.referer(self.base + 'signup/index.phtml?cookieCheck=1')
@@ -84,5 +86,11 @@ class creator:
             print('something fucked up, quitting in 5 seconds.')
             time.sleep(5)
             sys.exit()
-        print('Account details:\nUsername: ' + username + '\nPassword: ' + passwords +'11\nDOB (D/M/Y): ' + str(day) + '/' + str(month) + '/' + str(year))
+        findmail = email.FindMail()
+        r = self.s.get(findmail)
+        if '?activated=yes\'' not in r.text:
+            print('something fucked up, quitting in 5 seconds.')
+            time.sleep(5)
+            sys.exit()
+        print('Account details:\nUsername: ' + username + '\nPassword: ' + passwords +'11\nEmail: ' + self.getemail + '\nDOB (D/M/Y): ' + str(day) + '/' + str(month) + '/' + str(year))
         input('\nPress enter to exit')
