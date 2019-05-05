@@ -86,7 +86,3 @@ class creator:
             sys.exit()
         print('Account details:\nUsername: ' + username + '\nPassword: ' + passwords +'11\nDOB (D/M/Y): ' + str(day) + '/' + str(month) + '/' + str(year))
         input('\nPress enter to exit')
-
-if __name__ == '__main__':
-    a = creator()
-    a.autocreate()
