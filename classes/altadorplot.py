@@ -73,7 +73,7 @@ class altador:
         data_split[0] + ";" + data_split[1] + "|" + data_split[1] + ";" + data_split[0] + "|" + \
         data_split[1] + ";" + data_split[2] + "|" + data_split[2] + ";" + data_split[1] + "|"+ \
         data_split[3] + ";" + data_split[4] + "|" + data_split[4] + ";" + data_split[3] + "|"+ \
-        data_split[4] + ";" + data_split[5] + "|" + data_split[5] + ";" + data_split[4] + 'http://thedailyneopets.com/altador-plot/part3/')
+        data_split[4] + ";" + data_split[5] + "|" + data_split[5] + ";" + data_split[4], 'http://thedailyneopets.com/altador-plot/part3/')
 
     def partfour(self):
         r = self.user.get('altador/clouds.phtml', 'http://thedailyneopets.com/altador-plot/part4/')
@@ -95,7 +95,7 @@ class altador:
         data_split[1] + ";" + data_split[2] + "|" + data_split[2] + ";" + data_split[1] + "|" + \
         data_split[2] + ";" + data_split[3] + "|" + data_split[3] + ";" + data_split[2] + "|" + \
         data_split[3] + ";" + data_split[4] + "|" + data_split[4] + ";" + data_split[3] + "|" + \
-        data_split[5] + 'http://thedailyneopets.com/altador-plot/part3/')
+        data_split[5], 'http://thedailyneopets.com/altador-plot/part3/')
 
     def partfive(self):
         r = self.user.get('altador/tomb.phtml', 'http://thedailyneopets.com/altador-plot/part5/')
